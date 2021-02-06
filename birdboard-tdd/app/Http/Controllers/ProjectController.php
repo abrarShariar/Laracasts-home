@@ -19,6 +19,8 @@ class ProjectController extends Controller
             'title' => $request->title,
             'description' => $request->description
         ]);
+
+        return redirect('/projects');
     }
 
     public function show()
