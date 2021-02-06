@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 
 Route::post('/projects', [ProjectController::class, 'store']);
+Route::get('/projects', [ProjectController::class, 'show']);

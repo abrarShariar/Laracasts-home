@@ -20,4 +20,10 @@ class ProjectController extends Controller
             'description' => $request->description
         ]);
     }
+
+    public function show()
+    {
+        $projects = Project::all();
+        return view('projects.index', ['projects' => $projects]);
+    }
 }
