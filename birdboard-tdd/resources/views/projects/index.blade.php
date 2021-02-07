@@ -6,12 +6,9 @@
     <title>Birdboard</title>
 </head>
 <body>
+    {{ $project->title }}
 
-    <ul>
-        @foreach ($projects as $project)
-            <li>{{ $project->title }}</li>
-        @endforeach
-    </ul>
+    {{ $project->description }}
     
 </body>
 </html>

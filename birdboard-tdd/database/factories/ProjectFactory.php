@@ -1,0 +1,29 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\App\Project;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class ProjectFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = App\Project::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph
+        ];
+    }
+}

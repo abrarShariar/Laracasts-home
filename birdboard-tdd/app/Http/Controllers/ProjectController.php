@@ -9,13 +9,17 @@ use Illuminate\Support\Facades\Log;
 class ProjectController extends Controller
 {
     public function store(Request $request)
-    {
+    {   
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
         // validate data
         // persist
         // redirect
         Log::info($request->title);
         Log::info($request->description);
-        Project::create([
+        Project::make([
             'title' => $request->title,
             'description' => $request->description
         ]);
@@ -27,5 +31,14 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
         return view('projects.index', ['projects' => $projects]);
+    }
+
+    public function getById(Request $request, $id)
+    {
+        Log::info($id);
+        $project = Project::findOrFail($id);
+        Log::info($id);
+
+        return view('projects.index', ['project' => $project]);
     }
 }
