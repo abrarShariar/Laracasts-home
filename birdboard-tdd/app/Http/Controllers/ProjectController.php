@@ -10,16 +10,20 @@ class ProjectController extends Controller
 {
     public function store(Request $request)
     {   
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required'
-        ]);
         // validate data
         // persist
         // redirect
+
+        $request->validate([
+            'owner_id' => 'required',
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+  
         Log::info($request->title);
         Log::info($request->description);
-        Project::make([
+        Project::create([
+            'owner_id' => $request->owner_id,
             'title' => $request->title,
             'description' => $request->description
         ]);

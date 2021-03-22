@@ -6,9 +6,15 @@
     <title>Birdboard</title>
 </head>
 <body>
-    {{ $project->title }}
-
-    {{ $project->description }}
-    
+    <h1>
+        Project Details Page
+    </h1>
+    <ul>
+        @foreach ($projects as $project)
+            <li>
+                <a href="{{ $project->path() }}">  {{ $project->title }} </a>
+            </li>
+        @endforeach
+    </ul>
 </body>
 </html>
